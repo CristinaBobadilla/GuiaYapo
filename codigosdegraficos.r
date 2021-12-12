@@ -3,7 +3,7 @@ library(tidyverse)
 
 productosYapo <- productosYapo %>% mutate( TipoAviso = ifelse( tipo == "Vendo", "Venta", "Servicios") )
 
-productosYapo <- productosYapo %>% mutate( Comuna = gsub("Región Metropolitana, ", "", region) )
+productosYapo <- productosYapo %>% mutate( Comuna = gsub("RegiÃ³n Metropolitana, ", "", region) )
 
 
 #grafico por tipo de aviso
@@ -25,7 +25,8 @@ comuna <- group_by(productosYapo, Comuna) %>% summarise(cantidad = n())
 ggplot(data=comuna, aes(x=Comuna, y=cantidad, fill=Comuna)) + geom_bar(stat="identity") + coord_flip()
 
 
-productosYapo <- productosYapo %>% mutate( RangoPrecio = case_when( ValorPeso  < 5000 ~ "< 5.000", ValorPeso < 10000 ~ "< 10.000" , ValorPeso < 50000 ~ "< 50.000" , ValorPeso < 100000 ~ "< 100.000", ValorPeso < 1000000 ~ "< 1.000.000", ValorPeso >= 1000000 ~ ">= 1.000.000")  )
+productosYapo <- productosYapo %>% mutate( RangoPrecio = case_when( ValorPeso  < 5000 ~ "< 5.000", ValorPeso < 10000 ~ "5.000-10.000" , ValorPeso < 50000 ~ "10.000- 50.000" , ValorPeso < 100000 ~ "50.000-100.000", ValorPeso < 1000000 ~ "100.000-1.000.000", ValorPeso >= 1000000 ~ ">= 1.000.000")  )
+
 
 rangoprecio <- group_by(productosYapo, RangoPrecio) %>% summarise(cantidad = n())
 ggplot(data=rangoprecio, aes(x=RangoPrecio, y=cantidad, fill=RangoPrecio)) + geom_bar(stat="identity") + coord_flip()
