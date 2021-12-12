@@ -4,7 +4,7 @@
 # GRÁFICOS
 *Para la realización de los gráficos en R se han utilizado los paquetes tidyverse y ggplot2 y se ha ocupado el archivo .csv que contiene la recopilación de los datos de yapo*
 
-•	Gráfico Cantidad de avisos
+## Gráfico Cantidad de avisos
 
 ![grafico1](https://github.com/CristinaBobadilla/GuiaYapo/blob/main/graficotipoaviso1.png)
 
@@ -22,7 +22,7 @@ ggplot(tipoaviso, aes(x="", y=cantidad, fill=TipoAviso)) + geom_bar(stat="identi
 
 
 
-•	Grafico cantidad de tipos de moneda
+## Grafico cantidad de tipos de moneda
 
 ![grafico2](https://github.com/CristinaBobadilla/GuiaYapo/blob/main/graficotipomoneda.png)
 
@@ -38,7 +38,7 @@ Y con el comando de ggplot usamos la variable tipomoneda.*
 
 
 
-•	Gráfico cantidad de ventas por comuna
+## Gráfico cantidad de ventas por comuna
 
 ![grafico3](https://github.com/CristinaBobadilla/GuiaYapo/blob/main/graficocomunas.png)
 
@@ -53,7 +53,7 @@ ggplot(data=comuna, aes(x=Comuna, y=cantidad, fill=Comuna)) + geom_bar(stat="ide
 
 
 
-•	Gráfico de cantidad de ventas según rango de precios
+## Gráfico de cantidad de ventas según rango de precios
 
 ![grafico4](https://github.com/CristinaBobadilla/GuiaYapo/blob/main/rangopreciosgrafico.png)
 
